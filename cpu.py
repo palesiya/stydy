@@ -22,7 +22,12 @@ def get_memory():
     mem_1 = info["total"] / 1024
     mem_2 = info["available"] / 1024
     mem_3 = info["used"] / 1024
-    return mem_1, mem_2, mem_3
+    mem = {
+        "total": mem_1,
+        "available": mem_2,
+        "used": mem_3
+    }
+    return mem
 
 
 def get_pr_mem():
@@ -39,7 +44,11 @@ def get_network():
     }
     netw_1 = network["bytes_sent"] / 1024
     netw_2 = network["bytes_recv"] / 1024
-    return netw_1, netw_2
+    netw = {
+        "bytes_sent": netw_1,
+        "bytes_recv": netw_2
+    }
+    return netw
 
 
 def get_process():
@@ -54,7 +63,6 @@ def process_show(proc_i):
             #template += f"\n\tPid: {pid:<15} \n\tUsername: {proc_i[pid]['username']} \tName: {proc_i[pid]['name']}"
             template += "\n\tPid: {:<10} Name: {:<22} Username: {}".format(pid, proc_i[pid]["name"], proc_i[pid]['username'])
             pid +=1
-
     return template
 
 
@@ -70,11 +78,11 @@ def times_show(times_i):
 
 def memory_show(memory_i):
     tmpl = """\tИспользование системной памяти (килобайт):
-    Total memory{0:<13}{1:.2f}
-    Available memory{0:<9}{2:.2f} 
-    Used memory{0:<14}{3:.2f}
+    Total memory{0:<13}{total:.2f}
+    Available memory{0:<9}{available:.2f} 
+    Used memory{0:<14}{used:.2f}
     ----------------------------------"""
-    return tmpl.format(" ", *memory_i)
+    return tmpl.format(" ", **memory_i)
 
 
 def proc_mem_show(mem_i):
@@ -86,10 +94,10 @@ def proc_mem_show(mem_i):
 
 def network_show(network_i):
     tmpl = """\tКоличество отправленных и полученных килобайтов:
-    Kilobytes sent{0:<11}{1:.2f}
-    Kilobytes received{0:<7}{2:.2f}
+    Kilobytes sent{0:<11}{bytes_sent:.2f}
+    Kilobytes received{0:<7}{bytes_recv:.2f}
     ----------------------------------"""
-    return tmpl.format("", *network_i)
+    return tmpl.format(" ", **network_i)
 
 
 def main():

@@ -1,4 +1,10 @@
-a = [1, 3, 4, 3, 5, 7, 3]
+dct = {1: 'value_1', 2: 'value_2', 3: 'value_3'}
 
-for el in a:
-    if el == 3
+dct["key_str"] = 444
+
+dct[("hi", 4, 5)] = [4, 6, 12]
+
+c = dct[2]
+
+print(dct)
+print(c)
