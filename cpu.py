@@ -98,44 +98,44 @@ def network_show(network_i):
     return tmpl.format(" ", **network_i)
 
 
-def send_file_cpu():
+def send_file_cpu(files):
     try:
         with open("cpu_times.txt", "w", encoding="utf-8") as file:
-            file.write(times_show(get_times()))
+            file.write(files)
     except:
-        print("ошибка при работе с файлом")
+        print("ошибка при работе с файлом cpu_times")
 
 
-def send_file_mem():
+def send_file_mem(files):
     try:
         with open("virtual_memory.txt", "w", encoding="utf-8") as file:
-            file.write((memory_show(get_memory())))
+            file.write(files)
     except:
-        print("ошибка при работе с файлом")
+        print("ошибка при работе с файлом virtual_memory")
 
 
-def send_file_per():
+def send_file_per(files):
     try:
         with open("percent_mem.txt", "w", encoding="utf-8") as file:
-            file.write(proc_mem_show(get_pr_mem()))
+            file.write(files)
     except:
-        print("ошибка при работе с файлом")
+        print("ошибка при работе с файлом percent_mem")
 
 
-def send_file_netw():
+def send_file_netw(files):
     try:
         with open("network_counters.txt", "w", encoding="utf-8") as file:
-            file.write(network_show(get_network()))
+            file.write(files)
     except:
-        print("ошибка при работе с файлом")
+        print("ошибка при работе с файлом network_counters")
 
 
-def send_file_proc():
+def send_file_proc(files):
     try:
         with open("process_iter.txt", "w", encoding="utf-8") as file:
-            file.write(process_show(get_process()))
+            file.write(files)
     except:
-        print("ошибка при работе с файлом")
+        print("ошибка при работе с файлом process_iter")
 
 
 def main():
@@ -144,13 +144,12 @@ def main():
     print(memory_show(get_memory()))
     print(proc_mem_show(get_pr_mem()))
     print(process_show(get_process()))
-    send_file_mem()
-    send_file_per()
-    send_file_netw()
-    send_file_cpu()
-    send_file_proc()
+    send_file_mem(memory_show(get_memory()))
+    send_file_per(proc_mem_show(get_pr_mem()))
+    send_file_netw(network_show(get_network()))
+    send_file_cpu(times_show(get_times()))
+    send_file_proc(process_show(get_process()))
+
 
 if __name__ == '__main__':
     main()
-
-

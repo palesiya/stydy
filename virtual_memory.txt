@@ -1,5 +1,5 @@
 	Использование системной памяти (килобайт):
     Total memory             14528572.00
-    Available memory         6005300.00 
-    Used memory              8523272.00
+    Available memory         6349516.00 
+    Used memory              8179056.00
     ----------------------------------

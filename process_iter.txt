@@ -6,7 +6,7 @@
 	Pid: 704        Name: svchost.exe            Username: None
 	Pid: 712        Name: csrss.exe              Username: None
 	Pid: 1156       Name: wininit.exe            Username: None
-	Pid: 1184       Name: powershell.exe         Username: APV9889\37529
+	Pid: 1172       Name: pycharm64.exe          Username: APV9889\37529
 	Pid: 1228       Name: services.exe           Username: None
 	Pid: 1252       Name: lsass.exe              Username: None
 	Pid: 1280       Name: svchost.exe            Username: None
@@ -17,10 +17,10 @@
 	Pid: 1512       Name: svchost.exe            Username: None
 	Pid: 1560       Name: svchost.exe            Username: None
 	Pid: 1652       Name: cncmd.exe              Username: APV9889\37529
+	Pid: 1660       Name: browser.exe            Username: APV9889\37529
 	Pid: 1692       Name: FnHotkeyCapsLKNumLK.exe Username: APV9889\37529
 	Pid: 1720       Name: svchost.exe            Username: None
 	Pid: 1752       Name: sihost.exe             Username: APV9889\37529
-	Pid: 1776       Name: pycharm64.exe          Username: APV9889\37529
 	Pid: 1796       Name: svchost.exe            Username: None
 	Pid: 1804       Name: svchost.exe            Username: None
 	Pid: 1812       Name: svchost.exe            Username: None
