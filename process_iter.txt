@@ -1,0 +1,30 @@
+	Запущенные процессы:
+	Pid: 0          Name: System Idle Process    Username: NT AUTHORITY\SYSTEM
+	Pid: 4          Name: System                 Username: NT AUTHORITY\SYSTEM
+	Pid: 172        Name: Registry               Username: None
+	Pid: 648        Name: smss.exe               Username: None
+	Pid: 704        Name: svchost.exe            Username: None
+	Pid: 712        Name: csrss.exe              Username: None
+	Pid: 1156       Name: wininit.exe            Username: None
+	Pid: 1228       Name: services.exe           Username: None
+	Pid: 1252       Name: lsass.exe              Username: None
+	Pid: 1280       Name: svchost.exe            Username: None
+	Pid: 1336       Name: msedgewebview2.exe     Username: APV9889\37529
+	Pid: 1372       Name: svchost.exe            Username: None
+	Pid: 1400       Name: fontdrvhost.exe        Username: None
+	Pid: 1408       Name: WUDFHost.exe           Username: None
+	Pid: 1512       Name: svchost.exe            Username: None
+	Pid: 1560       Name: svchost.exe            Username: None
+	Pid: 1652       Name: cncmd.exe              Username: APV9889\37529
+	Pid: 1668       Name: TiWorker.exe           Username: None
+	Pid: 1692       Name: FnHotkeyCapsLKNumLK.exe Username: APV9889\37529
+	Pid: 1720       Name: svchost.exe            Username: None
+	Pid: 1752       Name: sihost.exe             Username: APV9889\37529
+	Pid: 1776       Name: pycharm64.exe          Username: APV9889\37529
+	Pid: 1796       Name: svchost.exe            Username: None
+	Pid: 1804       Name: svchost.exe            Username: None
+	Pid: 1812       Name: svchost.exe            Username: None
+	Pid: 1900       Name: dllhost.exe            Username: APV9889\37529
+	Pid: 1908       Name: browser.exe            Username: APV9889\37529
+	Pid: 1912       Name: svchost.exe            Username: None
+	Pid: 1920       Name: svchost.exe            Username: None

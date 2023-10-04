@@ -14,20 +14,19 @@ def get_times():
 def get_memory():
     info_mem = psutil.virtual_memory()
     info = {
-        "total": info_mem.total,
-        "available": info_mem.available,
-        #"percent": info_mem.percent,
-        "used": info_mem.used
+        "total": (info_mem.total / 1024),
+        "available": (info_mem.available / 1024),
+        "used": (info_mem.used / 1024)
     }
-    mem_1 = info["total"] / 1024
-    mem_2 = info["available"] / 1024
-    mem_3 = info["used"] / 1024
-    mem = {
-        "total": mem_1,
-        "available": mem_2,
-        "used": mem_3
-    }
-    return mem
+    # mem_1 = info["total"] / 1024
+    # mem_2 = info["available"] / 1024
+    # mem_3 = info["used"] / 1024
+    # mem = {
+    #     "total": mem_1,
+    #     "available": mem_2,
+    #     "used": mem_3
+    # }
+    return info
 
 
 def get_pr_mem():
@@ -39,16 +38,16 @@ def get_pr_mem():
 def get_network():
     info_network = psutil.net_io_counters()
     network = {
-        "bytes_sent": info_network.bytes_sent,
-        "bytes_recv": info_network.bytes_recv
+        "bytes_sent": (info_network.bytes_sent / 1024),
+        "bytes_recv": (info_network.bytes_recv / 1024)
     }
-    netw_1 = network["bytes_sent"] / 1024
-    netw_2 = network["bytes_recv"] / 1024
-    netw = {
-        "bytes_sent": netw_1,
-        "bytes_recv": netw_2
-    }
-    return netw
+    # netw_1 = network["bytes_sent"] / 1024
+    # netw_2 = network["bytes_recv"] / 1024
+    # netw = {
+    #     "bytes_sent": netw_1,
+    #     "bytes_recv": netw_2
+    # }
+    return network
 
 
 def get_process():
@@ -60,7 +59,6 @@ def process_show(proc_i):
     template = "\tЗапущенные процессы:"
     for pid in proc_i:
         if pid < 2000:
-            #template += f"\n\tPid: {pid:<15} \n\tUsername: {proc_i[pid]['username']} \tName: {proc_i[pid]['name']}"
             template += "\n\tPid: {:<10} Name: {:<22} Username: {}".format(pid, proc_i[pid]["name"], proc_i[pid]['username'])
             pid +=1
     return template
@@ -100,13 +98,59 @@ def network_show(network_i):
     return tmpl.format(" ", **network_i)
 
 
+def send_file_cpu():
+    try:
+        with open("cpu_times.txt", "w", encoding="utf-8") as file:
+            file.write(times_show(get_times()))
+    except:
+        print("ошибка при работе с файлом")
+
+
+def send_file_mem():
+    try:
+        with open("virtual_memory.txt", "w", encoding="utf-8") as file:
+                    file.write((memory_show(get_memory())))
+    except:
+        print("ошибка при работе с файлом")
+
+
+def send_file_per():
+    try:
+        with open("percent_mem.txt", "w", encoding="utf-8") as file:
+                    file.write(proc_mem_show(get_pr_mem()))
+    except:
+        print("ошибка при работе с файлом")
+
+
+def send_file_netw():
+    try:
+        with open("network_counters.txt", "w", encoding="utf-8") as file:
+                    file.write(network_show(get_network()))
+    except:
+        print("ошибка при работе с файлом")
+
+
+def send_file_proc():
+    try:
+        with open("process_iter.txt", "w", encoding="utf-8") as file:
+                    file.write(process_show(get_process()))
+    except:
+        print("ошибка при работе с файлом")
+
+
 def main():
     print(times_show(get_times()))
     print(network_show(get_network()))
     print(memory_show(get_memory()))
     print(proc_mem_show(get_pr_mem()))
     print(process_show(get_process()))
-
+    send_file_mem()
+    send_file_per()
+    send_file_netw()
+    send_file_cpu()
+    send_file_proc()
 
 if __name__ == '__main__':
     main()
+
+
