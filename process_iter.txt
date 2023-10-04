@@ -6,6 +6,7 @@
 	Pid: 704        Name: svchost.exe            Username: None
 	Pid: 712        Name: csrss.exe              Username: None
 	Pid: 1156       Name: wininit.exe            Username: None
+	Pid: 1184       Name: powershell.exe         Username: APV9889\37529
 	Pid: 1228       Name: services.exe           Username: None
 	Pid: 1252       Name: lsass.exe              Username: None
 	Pid: 1280       Name: svchost.exe            Username: None
@@ -16,7 +17,6 @@
 	Pid: 1512       Name: svchost.exe            Username: None
 	Pid: 1560       Name: svchost.exe            Username: None
 	Pid: 1652       Name: cncmd.exe              Username: APV9889\37529
-	Pid: 1668       Name: TiWorker.exe           Username: None
 	Pid: 1692       Name: FnHotkeyCapsLKNumLK.exe Username: APV9889\37529
 	Pid: 1720       Name: svchost.exe            Username: None
 	Pid: 1752       Name: sihost.exe             Username: APV9889\37529
@@ -25,6 +25,5 @@
 	Pid: 1804       Name: svchost.exe            Username: None
 	Pid: 1812       Name: svchost.exe            Username: None
 	Pid: 1900       Name: dllhost.exe            Username: APV9889\37529
-	Pid: 1908       Name: browser.exe            Username: APV9889\37529
 	Pid: 1912       Name: svchost.exe            Username: None
 	Pid: 1920       Name: svchost.exe            Username: None

@@ -109,7 +109,7 @@ def send_file_cpu():
 def send_file_mem():
     try:
         with open("virtual_memory.txt", "w", encoding="utf-8") as file:
-                    file.write((memory_show(get_memory())))
+            file.write((memory_show(get_memory())))
     except:
         print("ошибка при работе с файлом")
 
@@ -117,7 +117,7 @@ def send_file_mem():
 def send_file_per():
     try:
         with open("percent_mem.txt", "w", encoding="utf-8") as file:
-                    file.write(proc_mem_show(get_pr_mem()))
+            file.write(proc_mem_show(get_pr_mem()))
     except:
         print("ошибка при работе с файлом")
 
@@ -125,7 +125,7 @@ def send_file_per():
 def send_file_netw():
     try:
         with open("network_counters.txt", "w", encoding="utf-8") as file:
-                    file.write(network_show(get_network()))
+            file.write(network_show(get_network()))
     except:
         print("ошибка при работе с файлом")
 
@@ -133,7 +133,7 @@ def send_file_netw():
 def send_file_proc():
     try:
         with open("process_iter.txt", "w", encoding="utf-8") as file:
-                    file.write(process_show(get_process()))
+            file.write(process_show(get_process()))
     except:
         print("ошибка при работе с файлом")
 
