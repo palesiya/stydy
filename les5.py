@@ -1,10 +1,7 @@
-dct = {1: 'value_1', 2: 'value_2', 3: 'value_3'}
+import json
 
-dct["key_str"] = 444
+a1 = "та библиотека является частью Python, поэтому вам не нужно устанавливать ее с помощью диспетчера пакетов Pip . Как разобрать JSON на Python. Разбор строки данных в формате JSON, также назыв"
 
-dct[("hi", 4, 5)] = [4, 6, 12]
-
-c = dct[2]
-
-print(dct)
-print(c)
+a2= {1: "gggg", 2: "ghg", 3: "5klkolk"}
+with open("a1.json", "w") as file:
+    file.write(json.dumps(a1))
