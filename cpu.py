@@ -2,6 +2,18 @@ import psutil
 import json
 
 
+def send_times_show(func):
+    file_name = "cpu_times.json"
+
+    def send_file_times(*args):
+        func(*args)
+        with open(file_name, "w") as log_file:
+            log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+            return func(*args)
+    return send_file_times
+
+
+@send_times_show
 def get_times():
     info_times = psutil.cpu_times()
     info = {
@@ -12,6 +24,18 @@ def get_times():
     return info
 
 
+def send_virtual_memory(func):
+    file_name = "virtual_memory.json"
+
+    def send_file_netw(*args):
+        func(*args)
+        with open(file_name, "w") as log_file:
+            log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+            return func(*args)
+    return send_file_netw
+
+
+@send_virtual_memory
 def get_memory():
     info_mem = psutil.virtual_memory()
     info = {
@@ -22,12 +46,36 @@ def get_memory():
     return info
 
 
+def send_percent_mem(func):
+    file_name = "percent_mem.json"
+
+    def send_file_netw(*args):
+        func(*args)
+        with open(file_name, "w") as log_file:
+            log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+            return func(*args)
+    return send_file_netw
+
+
+@send_percent_mem
 def get_pr_mem():
     info_m = psutil.virtual_memory()
     info = {"percent": info_m.percent}
     return info
 
 
+def send_network_counters(func):
+    file_name = "network_counters.json"
+
+    def send_file_netw(*args):
+        func(*args)
+        with open(file_name, "w") as log_file:
+            log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+            return func(*args)
+    return send_file_netw
+
+
+@send_network_counters
 def get_network():
     info_network = psutil.net_io_counters()
     network = {
@@ -37,6 +85,18 @@ def get_network():
     return network
 
 
+def send_process_log(func):
+    file_name = "process_iter.json"
+
+    def send_file_process(*args):
+        func(*args)
+        with open(file_name, "w", encoding="utf-8") as log_file:
+            log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+            return func(*args)
+    return send_file_process
+
+
+@send_process_log
 def get_process():
     procs = {p.pid: p.info for p in psutil.process_iter(['name', 'username'])}
     return procs
@@ -85,122 +145,12 @@ def network_show(network_i):
     return tmpl.format(" ", **network_i)
 
 
-def send_times_show(func):
-    file_name = "times_show.json"
-
-    def send_file_netw(*args):
-        try:
-            with open(file_name, "w") as log_file:
-                log_file.write(json.dumps(get_times(), indent=4, ensure_ascii=False))
-        except:
-            print("ошибка при работе с файлом times_show")
-    return send_file_netw
-
-
-@send_times_show
-def send_file_cpu():
-    try:
-        with open("cpu_times.txt", "w", encoding="utf-8") as file:
-            file.write(times_show(get_times()))
-    except:
-        print("ошибка при работе с файлом")
-
-
-def send_virtual_memory(func):
-    file_name = "virtual_memory.json"
-
-    def send_file_netw(*args):
-        try:
-            with open(file_name, "w") as log_file:
-                log_file.write(json.dumps(get_memory(), indent=4, ensure_ascii=False))
-        except:
-            print("ошибка при работе с файлом virtual_memory")
-    return send_file_netw
-
-
-@send_virtual_memory
-def send_file_mem():
-    try:
-        with open("virtual_memory.txt", "w", encoding="utf-8") as file:
-                    file.write((memory_show(get_memory())))
-    except:
-        print("ошибка при работе с файлом")
-
-
-def send_percent_mem(func):
-    file_name = "percent_mem.json"
-
-    def send_file_netw(*args):
-        try:
-            with open(file_name, "w") as log_file:
-                log_file.write(json.dumps(get_pr_mem(), indent=4, ensure_ascii=False))
-        except:
-            print("ошибка при работе с файлом percent_mem")
-    return send_file_netw
-
-
-@send_percent_mem
-def send_file_per():
-    try:
-        with open("percent_mem.txt", "w") as file:
-                    file.write(proc_mem_show(get_pr_mem()))
-    except:
-        print("ошибка при работе с файлом")
-
-
-def send_network_counters(func):
-    file_name = "network_counters.json"
-
-    def send_file_netw(*args):
-        try:
-            with open(file_name, "w") as log_file:
-                log_file.write(json.dumps(get_network(), indent=4, ensure_ascii=False))
-        except:
-            print("ошибка при работе с файлом network_counters")
-    return send_file_netw
-
-
-@send_network_counters
-def send_file_netw():
-    try:
-        with open("network_counters.txt", "w", encoding="utf-8") as file:
-                    file.write(network_show(get_network()))
-    except:
-        print("ошибка при работе с файлом")
-
-
-def send_process_log(func):
-    file_name = "process_iter.json"
-
-    def send_file_netw(*args):
-        try:
-            with open(file_name, "w", encoding="utf-8") as log_file:
-                log_file.write(json.dumps(get_process(), indent=4, ensure_ascii=False))
-        except:
-            print("ошибка при работе с файлом process_iter")
-    return send_file_netw
-
-
-@send_process_log
-def send_file_proc():
-    try:
-        with open("process_iter.txt", "w", encoding="utf-8") as file:
-                    file.write(process_show(get_process()))
-    except:
-        print("ошибка при работе с файлом")
-
-
 def main():
     print(times_show(get_times()))
     print(network_show(get_network()))
     print(memory_show(get_memory()))
     print(proc_mem_show(get_pr_mem()))
     print(process_show(get_process()))
-    send_file_mem(memory_show(get_memory()))
-    send_file_per(proc_mem_show(get_pr_mem()))
-    send_file_netw(network_show(get_network()))
-    send_file_cpu(times_show(get_times()))
-    send_file_proc(process_show(get_process()))
 
 
 if __name__ == '__main__':
