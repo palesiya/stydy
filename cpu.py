@@ -72,7 +72,7 @@ def cpu_times_log(func):
         print(func(*args))
         try:
             with open(file_name, "w", encoding="utf-8") as log_file:
-                log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+                log_file.write(json.dumps(*args, indent=4, ensure_ascii=False))
         except:
             print("ошибка при работе с файлом cpu_times")
     return send_file_netw
@@ -96,7 +96,7 @@ def memory_log(func):
         print(func(*args))
         try:
             with open(file_name, "w", encoding="utf-8") as log_file:
-                log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+                log_file.write(json.dumps(*args, indent=4, ensure_ascii=False))
         except:
             print("ошибка при работе с файлом virtual_memory")
     return send_file_netw
@@ -119,7 +119,7 @@ def proc_mem_log(func):
         print(func(*args))
         try:
             with open(file_name, "w", encoding="utf-8") as log_file:
-                log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+                log_file.write(json.dumps(*args, indent=4, ensure_ascii=False))
         except:
             print("ошибка при работе с файлом percent_memory")
     return send_file_netw
@@ -140,7 +140,7 @@ def netw_log(func):
         print(func(*args))
         try:
             with open(file_name, "w", encoding="utf-8") as log_file:
-                log_file.write(json.dumps(func(*args), indent=4, ensure_ascii=False))
+                log_file.write(json.dumps(*args, indent=4, ensure_ascii=False))
         except:
             print("ошибка при работе с файлом network_counters")
     return send_file_netw
