@@ -1,7 +1,3 @@
-from files_cpu import parsing
-#from files_cpu import
-
-
 def process_show(proc_i):
     template = "\tЗапущенные процессы:"
     for pid in proc_i:
@@ -43,15 +39,3 @@ def network_show(network_i):
     Kilobytes received{0:<7}{bytes_recv:.2f}
     ----------------------------------"""
     return tmpl.format(" ", **network_i)
-
-
-def main():
-    print(times_show(get_times()))
-    print(network_show(get_network()))
-    print(memory_show(get_memory()))
-    print(proc_mem_show(get_pr_mem()))
-    print(process_show(get_process()))
-
-
-if __name__ == '__main__':
-    main()
